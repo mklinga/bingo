@@ -33,6 +33,27 @@ a:hover {
   text-decoration: underline;
 }
 
+div.bingo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+div.grid-item {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 1px solid #ccc;
+  transition: all 0.3s ease-in;
+}
+
 div.grid-item.clicked {
-  text-decoration: line-through;
+  background: #ffaa00;
+}
+
+div.grid-item.match {
+  background: limegreen !important;
 }

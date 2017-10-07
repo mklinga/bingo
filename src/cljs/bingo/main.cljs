@@ -1,5 +1,7 @@
 (ns bingo.home
-  (:require [reagent.core :as r]))
+  (:require
+    [reagent.core :as r]
+    [bingo.victory :as victory]))
 
 (defn log [& args] (apply (.-log js/console) args))
 
@@ -14,6 +16,11 @@
    { :id 2 :item "Talked about text editors in #dev" }
    { :id 3 :item "Introduced bug in production" }
    { :id 4 :item "Fixed a bug in production" }
+   { :id 5 :item "Dropped production Table" }
+   { :id 6 :item "Talked about text editors in #dev" }
+   { :id 7 :item "Introduced bug in production" }
+   { :id 8 :item "Fixed a bug in production" }
+   { :id 9 :item "Fixed a bug in production" }
  ])
 
 (def initial-items (map #(assoc % :clicked (r/atom false)) items))
@@ -27,11 +34,13 @@
    (:item item)]))
 
 (defn bingo-grid [items]
-  [:div
+  [:div.bingo-grid
    (doall
      (map grid-item items))])
 
 (defn main-view []
+  (let [has-win (victory/has-win initial-items)]
   [:div
-   [:h2 "Developer Bingo!"]
-   (bingo-grid initial-items)])
+   [:h2 "Developer ringo!"]
+   (bingo-grid initial-items)
+   [:h2 (if has-win "Victory!" (str has-win))]]))
