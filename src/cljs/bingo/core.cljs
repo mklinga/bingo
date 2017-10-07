@@ -1,24 +1,19 @@
 (ns bingo.core
     (:require [reagent.core :as reagent :refer [atom]]
               [secretary.core :as secretary :include-macros true]
-              [accountant.core :as accountant]))
-
-;; -------------------------
-;; Views
-
-(defn home-page []
-  [:div [:h2 "Welcome to bingo"]])
+              [accountant.core :as accountant]
+              [bingo.home :as home]))
 
 ;; -------------------------
 ;; Routes
 
-(def page (atom #'home-page))
+(def page (atom #'home/main-view))
 
 (defn current-page []
   [:div [@page]])
 
 (secretary/defroute "/" []
-  (reset! page #'home-page))
+  (reset! page #'home/main-view))
 
 ;; -------------------------
 ;; Initialize app
