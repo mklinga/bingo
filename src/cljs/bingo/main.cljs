@@ -7,15 +7,15 @@
 
 (defonce items
   [
-   { :id 1 :item "Dropped production Table" }
+   { :id 1 :item "First pull request" }
    { :id 2 :item "Talked about text editors in #dev" }
    { :id 3 :item "Introduced bug in production" }
    { :id 4 :item "Fixed a bug in production" }
-   { :id 5 :item "Dropped production Table" }
-   { :id 6 :item "Talked about text editors in #dev" }
-   { :id 7 :item "Introduced bug in production" }
-   { :id 8 :item "Fixed a bug in production" }
-   { :id 9 :item "Fixed a bug in production" }
+   { :id 5 :item "Writing on the wrong channel" }
+   { :id 6 :item "Late from the standup" }
+   { :id 7 :item "Dropped production Table" }
+   { :id 8 :item "Presented a sharing session" }
+   { :id 9 :item "Heard a joke about dutch people" }
  ])
 
 (def initial-items (map #(assoc % :clicked (r/atom false)) items))
@@ -36,6 +36,8 @@
 (defn main-view []
   (let [has-win (victory/has-win initial-items)]
   [:div
-   [:h2 "Developer ringo!"]
+   [:h2 "Developer bingo!"]
    (bingo-grid initial-items)
-   [:h2 (if has-win "Victory!" "Keep going, you'll get there.")]]))
+   [:h2 { :class (when has-win "winner")}
+    (if has-win "AWESOME!" "Keep going, you'll get there.")]]))
+

@@ -57,3 +57,35 @@ div.grid-item.clicked {
 div.grid-item.match {
   background: limegreen !important;
 }
+
+h2.winner {
+  animation: rotate 3s linear infinite 0s;
+  transform-origin: top;
+  display: block;
+  text-align: center;
+  animation-direction: alternate;
+}
+
+@keyframes rotate {
+  0% {
+    color: initial;
+    font-size: initial;
+    transform: rotateZ(0deg);
+  }
+  45% {
+    transform: rotateZ(360deg);
+    font-size: 96px;
+  }
+  50% {
+    color: hotpink;
+  }
+  55% {
+    transform: rotateZ(360deg);
+    font-size: 96px;
+  }
+  100% {
+    color: initial;
+    font-size: initial;
+    transform: rotateZ(720deg)
+  }
+}
