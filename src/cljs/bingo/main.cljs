@@ -5,11 +5,6 @@
 
 (defn log [& args] (apply (.-log js/console) args))
 
-;; (defonce click-count (r/atom 0))
-;; (defn state-ful-with-atom []
-;;   [:div {:on-click #(swap! click-count inc)}
-;;    "I have been clicked " @click-count " times."])
-
 (defonce items
   [
    { :id 1 :item "Dropped production Table" }
@@ -43,4 +38,4 @@
   [:div
    [:h2 "Developer ringo!"]
    (bingo-grid initial-items)
-   [:h2 (if has-win "Victory!" (str has-win))]]))
+   [:h2 (if has-win "Victory!" "Keep going, you'll get there.")]]))
