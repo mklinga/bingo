@@ -1,0 +1,7 @@
+version: '2'
+services:
+  bingo:
+    command: lein run
+    build: .
+    ports:
+      - "3000:3000"

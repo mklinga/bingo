@@ -25,7 +25,6 @@
        (map #(nth items %) down)
        (map #(nth items %) up))))
 
-
 (defn has-winner [items]
   (some true? (map #(every? true? (map get-atom-value %)) items)))
 
